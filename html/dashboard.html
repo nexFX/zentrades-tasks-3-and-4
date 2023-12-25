@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css" />
+    
+    
+</head>
+<body class="bg-light m-4">
+    <h5><b>Company Metrics</b></h5>
+    <div class="row mt-3">
+        <div class="col-lg-3">
+          <div class="card small-card">
+            <div class="card-body">
+              <h5 class="card-title revenue">$410,223.29</h5>
+              <p class="card-text">Total Revenue</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card small-card">
+            <div class="card-body">
+              <h5 class="card-title">$620</h5>
+              <p class="card-text">Total Jobs Avg</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="card small-card">
+              <div class="card-body">
+                <h5 class="card-title">655</h5>
+                <p class="card-text">Tickets Created</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="card small-card">
+              <div class="card-body">
+                <h5 class="card-title">734</h5>
+                <p class="card-text">Tickets Scheduled</p>
+              </div>
+            </div>
+          </div>
+      </div>
+
+    <div class="row mt-3">
+        <div class="col-lg-3">
+          <div class="card small-card">
+            <div class="card-body">
+              <h5 class="card-title amt">$110,223.29</h5>
+              <p class="card-text">Outstanding Amount</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card small-card">
+            <div class="card-body">
+              <h5 class="card-title">105</h5>
+              <p class="card-text">Memberships Sold</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="card small-card">
+              <div class="card-body">
+                <h5 class="card-title">436</h5>
+                <p class="card-text">Jobs Completed</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="card small-card">
+              <div class="card-body">
+                <h5 class="card-title">65</h5>
+                <p class="card-text">Total Cancelled</p>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-lg-6">
+          <h5><b>Revenue by Job Location</b></h5>
+          <div class="card chart-container">
+            <canvas id="chart1"></canvas>
+          </div>
+        </div>
+        <div class="col-lg-6">
+            <h5><b>Revenue by Job Type</b></h5>
+            <div class="card chart-container">
+                <canvas id="chart2"></canvas>
+              </div>
+          </div>
+        </div>
+       </div>
+
+
+    
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="../js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/cdb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/9d1d9a82d2.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script>
+        const ctx = document.getElementById("chart1").getContext('2d');
+        const myChart = new Chart(ctx, {
+          type: 'horizontalBar',
+          data: {
+            labels: ["Everett", "Seattle", "Lynnwood", "Bothell",
+            "Mukitteo", "Edmonds"],
+            datasets: [{
+              label: 'Revenue by Job location',
+              backgroundColor: 'rgb(68,188,156)',
+              borderColor: 'rgb(47, 128, 237)',
+              data: [5000, 10000, 15000, 20000, 25000, 30000, 35000,40000,45000,50000],
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                }
+              }]
+            }
+          },
+        });
+
+        const ctx1 = document.getElementById("chart2").getContext('2d');
+        const myChart1 = new Chart(ctx1, {
+          type: 'horizontalBar',
+          data: {
+            labels: ["Service Plumbing", "Bid work HVAC", "Service HVAC", "Bid Work Plumbing",
+            "HWC Replacement", "Maintenance", "Material Sale"],
+            datasets: [{
+              label: 'Revenue by Job Type',
+              backgroundColor: 'rgb(68,188,156)',
+              borderColor: 'rgb(47, 128, 237)',
+              data: [5000, 10000, 15000, 20000, 25000, 30000, 35000,40000,45000,50000],
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                }
+              }]
+            }
+          },
+        });
+  </script>
+</body>
+</html>
